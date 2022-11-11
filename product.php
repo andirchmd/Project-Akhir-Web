@@ -25,17 +25,18 @@
     <header>
         <div class="container" style="">
             <h1><img src="assets/logo_polygon-removebg-preview.png" alt="kosong"></h1>
-            <ul>
-                <li><a href="index.php">Home</a></li>
-                <li class="active"><a href="product.php">Product</a></li>
-                <li><a href="aboutme.php">My Self</a></li>
-                <li><a href="crude/index.php">List Data</a></li>
-                <li><a href="">
+            <ul class="navbar">
+                <li><a href="index.php"><i class="fa fa-fw fa-home"></i> Home</a></li>
+                <li class="active"><a href="product.php"><i class="fa fa-fw fa-bicycle"></i> Product</a></li>
+                <!-- <li><a href="aboutme.php">My Self</a></li> -->
+                <!-- <li><a href="crude/index.php">List Data</a></li> -->
+                <li><a href="#"><i class="fa fa-fw fa-user"></i> Login</a></li>
+                <!-- <li><a href="">
                         <form action="logout.php" method="post" class="tbl"><button type="submit" name="logout"
                                 class="lgt">logout</button>
                         </form>
-                    </a></li>
-                <li><a href="#"><i class="bi-brightness-high-fill jancoklu" id="toggleDark"></i></a></li>
+                    </a></li> -->
+                <li><a href="#"><i class="bi-brightness-high-fill" id="toggleDark"></i></a></li>
             </ul>
         </div>
     </header>
@@ -69,7 +70,7 @@
     <!--Footer-->
     <footer>
         <div class="">
-            <small>Copyright &copy; 2022 - Muhammad Ihsan Fauzan, All Right Reserved.</small>
+            <small>Copyright &copy; 2022 - Polygon, All Right Reserved.</small>
         </div>
     </footer>
     <script src="script.js"></script>

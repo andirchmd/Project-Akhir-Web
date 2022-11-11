@@ -11,8 +11,17 @@ a{
 .container{
     width: 80%;
     margin: 0 auto;
-    display: flex;
-    flex-flow: row wrap;
+    /* display: flex;
+    flex-flow: row nowrap; */
+}
+
+.navbar {
+    background-color: transparent;
+    overflow: auto;
+}
+
+.navbar a:hover {
+    background-color: rgb(255, 17, 17); 
 }
 
 header{
@@ -140,7 +149,7 @@ footer{
     color: white;
     text-align: center;
 }
-/* my self */
+
 section{
     /* display: grid; */
     grid-template-columns: 1fr 1fr;
@@ -240,6 +249,11 @@ section{
     .icons li i{
         font-size: 15px;
     }
+
+    .container{
+        position: relative;
+        width: auto;
+    }
   }
   
   .credit{
@@ -259,3 +273,10 @@ section{
     height: 0px; 
     overflow: hidden;
   }
+
+@media screen and (max-width: 500px) {
+.navbar a {
+    float: none;
+    display: block;
+}
+}

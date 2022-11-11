@@ -36,15 +36,15 @@
             <ul>
                 <li><a href="index.php">Home</a></li>
                 <li><a href="product.php">Product</a></li>
-                <li class="active"><a href="aboutme.php">My Self</a></li>
+                <!-- <li class="active"><a href="aboutme.php">My Self</a></li> -->
                 <li><a href="crude/index.php">List Data</a></li>
-                <li><a href="">
+                <!-- <li><a href="">
                         <form action="logout.php" method="post" class="tbl"><button type="submit" name="logout"
                                 class="lgt">logout</button>
                         </form>
                     </a></li>
-                <li>
-                    <a href="#"><i class="bi-brightness-high-fill jancoklu" id="toggleDark"></i></a>
+                <li> -->
+                    <a href="#"><i class="bi-brightness-high-fill" id="toggleDark"></i></a>
                 </li>
             </ul>
         </div>
