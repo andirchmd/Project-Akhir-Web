@@ -7,7 +7,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>polygonbikes.com</title>
-    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
         integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -35,7 +35,7 @@
                 <li><a href="product.php"><i class="fa fa-fw fa-bicycle"></i> Product</a></li>
                 <!-- <li><a href="aboutme.php">My Self</a></li> -->
                 <!-- <li><a href="crude/index.php">List Data</a></li> -->
-                <li><a href="#"><i class="fa fa-fw fa-user"></i> Login</a></li>
+                <li><a href="login.php"><i class="fa fa-fw fa-user"></i> Login</a></li>
                 <!-- <li class="ganteng"><a href="">
                         <form action="logout.php" method="post" class="tbl"><button type="submit" name="logout"
                                 class="lgt">logout</button>
@@ -58,7 +58,7 @@
             <small>Copyright &copy; 2022 - Polygon, All Right Reserved.</small>
         </div>
     </footer>
-    <script src="script.js"></script>
+    <script src="js/script.js"></script>
 </body>
 
 </html>
