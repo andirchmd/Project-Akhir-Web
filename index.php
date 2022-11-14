@@ -1,4 +1,9 @@
+<?php
+    ob_start();
+    session_start();
+    ob_end_clean();
 
+?> 
 
 <!DOCTYPE html>
 <html lang="en">
@@ -33,14 +38,18 @@
             <ul class="navbar">
             <li class="active"><a href="index.php"><i class="fa fa-fw fa-home"></i> Home</a></li>
                 <li><a href="product.php"><i class="fa fa-fw fa-bicycle"></i> Product</a></li>
-                <!-- <li><a href="aboutme.php">My Self</a></li> -->
-                <!-- <li><a href="crude/index.php">List Data</a></li> -->
-                <li><a href="login.php"><i class="fa fa-fw fa-user"></i> Login</a></li>
-                <!-- <li class="ganteng"><a href="">
-                        <form action="logout.php" method="post" class="tbl"><button type="submit" name="logout"
-                                class="lgt">logout</button>
-                        </form>
-                    </a></li> -->
+
+                <?php
+                if(isset($_SESSION["username"])){
+                    $nama = $_SESSION["username"];?>
+                        <?php if($nama == "Andi"){?>
+                        <li><a href="admin.php"><i class="fa fa-fw fa-tachometer"></i>Dashboard</a></li>
+                        <?php }?>
+                <li><a href="#"><i class="fa fa-fw fa-user"></i><?=ucfirst($nama)?></a></li>
+                <li><a href="logout.php"><i class="fa fa-fw fa-sign-out"></i>Logout</a></li>
+                <?php }else{?>
+                <li><a href="login.php"><i class="fa fa-fw fa-user"></i>Login</a></li>
+                <?php }?>
 
                 <li><a href="#"><i class="bi-brightness-high-fill" id="toggleDark"></i></a></li>
             </ul>
@@ -48,7 +57,7 @@
     </header>
 
     <!--Banner-->
-    <section class="banner">
+    <section class="banner nover">
         <h2><img src="assets/polygon comunity.jpg" alt="" srcset=""></h2>
     </section>
 

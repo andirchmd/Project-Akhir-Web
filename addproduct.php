@@ -2,7 +2,8 @@
     ob_start();
     session_start();
     ob_end_clean();
-    if(isset($_SESSION["username"])){
+    $namaakun = $_SESSION["username"];
+    if(isset($_SESSION["username"]) && $namaakun == "Andi"){
     }else{
         echo header("location:index.php");
     }

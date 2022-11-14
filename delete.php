@@ -3,7 +3,8 @@ require "connect.php";
 ob_start();
 session_start();
 ob_end_clean();
-if(isset($_SESSION["username"])){
+$namaakun = $_SESSION["username"];
+if(isset($_SESSION["username"]) && $namaakun == "Andi"){
 $id = $_GET["id"];
 $query = mysqli_query($db, "SELECT * FROM product WHERE id_product=$id");
 $hasil = mysqli_fetch_array($query);

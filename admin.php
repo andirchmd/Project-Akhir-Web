@@ -2,7 +2,8 @@
     ob_start();
     session_start();
     ob_end_clean();
-    if(isset($_SESSION["username"])){
+    $namaakun = $_SESSION["username"];
+    if(isset($_SESSION["username"]) && $namaakun == "Andi"){
     }else{
         echo header("location:index.php");
     }
@@ -26,7 +27,7 @@
 <body>
 <header>
         <div class="container">
-            <h1><img src="https://www.polygonbikes.com/wp-content/themes/polygon2021/assets/images/logo-white.png" alt="" srcset=""></h1>
+            <h1><a href="index.php"><img src="https://www.polygonbikes.com/wp-content/themes/polygon2021/assets/images/logo-white.png" alt="" srcset=""></a></h1>
             <ul class="navbar">
                 <li><a href="admin.php"><i class="fa fa-fw fa-bicycle"></i> Product</a></li>
                 <li><a href="historyUser.php"><i class="fa fa-fw fa-history"></i> Riwayat Login</a></li>

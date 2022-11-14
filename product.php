@@ -1,3 +1,8 @@
+<?php
+    ob_start();
+    session_start();
+    ob_end_clean();
+?> 
 <!DOCTYPE html>
 <html lang="en">
 
@@ -27,51 +32,53 @@
             <ul class="navbar">
                 <li><a href="index.php"><i class="fa fa-fw fa-home"></i> Home</a></li>
                 <li class="active"><a href="product.php"><i class="fa fa-fw fa-bicycle"></i> Product</a></li>
-                <!-- <li><a href="aboutme.php">My Self</a></li> -->
-                <!-- <li><a href="crude/index.php">List Data</a></li> -->
-                <li><a href="login.php"><i class="fa fa-fw fa-user"></i> Login</a></li>
-                <!-- <li><a href="">
-                        <form action="logout.php" method="post" class="tbl"><button type="submit" name="logout"
-                                class="lgt">logout</button>
-                        </form>
-                    </a></li> -->
+                <?php
+                if(isset($_SESSION["username"])){
+                    $nama = $_SESSION["username"];?>
+                        <?php if($nama == "Andi"){?>
+                        <li><a href="admin.php"><i class="fa fa-fw fa-tachometer"></i>Dashboard</a></li>
+                        <?php }?>
+                <li><a href="#"><i class="fa fa-fw fa-user"></i><?=ucfirst($nama)?></a></li>
+                <li><a href="logout.php"><i class="fa fa-fw fa-sign-out"></i>Logout</a></li>
+                <?php }else{?>
+                <li><a href="login.php"><i class="fa fa-fw fa-user"></i>Login</a></li>
+                <?php }?>
                 <li><a href="#"><i class="bi-brightness-high-fill" id="toggleDark"></i></a></li>
             </ul>
         </div>
     </header>
 
-    <!--Product-->
-    <section class="product">
-        <div class="container">
-            <h3>BIKES</h3>
-            <div class="box">
-            <?php
-                require 'connect.php';
-                $result = mysqli_query($db, "SELECT * FROM product order by id_product asc");
-                $i = 0;            
-                while($row = mysqli_fetch_assoc($result)){$i++;
-                    // if($i % 5 == 0){
+    <!-- product -->
+    <section class="">
+        <!-- <div class="container"> -->
+            <div id="jasa" class="maincard">
+            <h2>BIKES</h2>
+                <?php
+                    require 'connect.php';
+                    $result = mysqli_query($db, "SELECT * FROM product order by id_product asc");
+                    $i = 0;            
+                    while($row = mysqli_fetch_assoc($result)){$i++;
                 ?>
-                    <div>
-                        <img src="assets/<?=$row['gambar_product'];?>" alt="product" width="100%">
-                        <p><?=$row['nama_product'];?><br> <b>Rp. <?=number_format($row['harga_product'],0,",",".")?>,-</b></p>
-                        <button style="margin: 20px 0px 0px 0px; padding: 5px;">Tambahkan</button>
+                <div class="card">
+                    <img src="assets/<?=$row['gambar_product'];?>" class="content" width="350px"/>
+                    <div class="deskrip">
+                        <p><?=$row['nama_product'];?><br>Rp. <?=number_format($row['harga_product'],0,".",",");?>,-</p>
                     </div>
-                    <?php
-                    }
-                    ?>
+                    <a href="buy.php?id=<?php echo $row['id_product'] ?>"><button class="button-50" role="button" name="button">Beli Sekarang</button></a>
+                </div>
+                <?php
+                }
+                ?>
             </div>
-
-        </div>
-
+        <!-- </div> -->
     </section>
 
     <!--Footer-->
-    <footer>
+    <!-- <footer>
         <div class="">
             <small>Copyright &copy; 2022 - Polygon, All Right Reserved.</small>
         </div>
-    </footer>
+    </footer> -->
     <script src="js/script.js"></script>
 </body>
 

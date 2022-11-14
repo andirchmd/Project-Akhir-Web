@@ -3,8 +3,11 @@
     ob_start();
     session_start();
     ob_end_clean();
-    if(isset($_SESSION["username"])){
+    $namaakun = $_SESSION["username"];
+    if(isset($_SESSION["username"]) && $namaakun == "Andi"){
         echo header("location:admin.php");
+    }elseif(isset($_SESSION["username"])){
+        echo header("location:index.php");
     }else{
 
   if(isset($_POST['submit'])){     
@@ -20,12 +23,18 @@
     $_SESSION['user']=$name;
     date_default_timezone_set("Asia/Makassar");
     $tanggal = date("Y-m-d H:i:s");
+    $_SESSION['time'] = $tanggal;
     $queryhistory = mysqli_query($db,"INSERT INTO riwayat_login (nama_user, waktu_login) VALUES('$username', '$tanggal')");
-    if($queryhistory){
+    if($queryhistory && $username == "Andi"){
         echo " <script>
             alert('selamat datang $username');
             document.location.href='admin.php';
         </script>";
+    }elseif($queryhistory){
+        echo " <script>
+        alert('selamat datang $username');
+        document.location.href='index.php';
+    </script>";
     }else{
         echo " <script>
         alert('gagal tambah riwayat');
