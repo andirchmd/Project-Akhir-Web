@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>polygonbikes.com</title>
-    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css" />
 </head>
@@ -17,8 +17,7 @@
             <ul>
                 <li><a href="https://web.facebook.com/polygonbikesid"><i class="fa-brands fa-facebook"></i></a></li>
                 <li><a href="https://www.youtube.com/user/PolygonCycleID"><i class="fa-brands fa-youtube"></i></a></li>
-                <li><a href="https://www.instagram.com/polygonbikesid/?hl=id"><i class="fa-brands fa-instagram"></i></a>
-                </li>
+                <li><a href="https://www.instagram.com/polygonbikesid/?hl=id"><i class="fa-brands fa-instagram"></i></a></li>
             </ul>
         </div>
     </div>
@@ -30,7 +29,7 @@
                 <li class="active"><a href="product.php"><i class="fa fa-fw fa-bicycle"></i> Product</a></li>
                 <!-- <li><a href="aboutme.php">My Self</a></li> -->
                 <!-- <li><a href="crude/index.php">List Data</a></li> -->
-                <li><a href="#"><i class="fa fa-fw fa-user"></i> Login</a></li>
+                <li><a href="login.php"><i class="fa fa-fw fa-user"></i> Login</a></li>
                 <!-- <li><a href="">
                         <form action="logout.php" method="post" class="tbl"><button type="submit" name="logout"
                                 class="lgt">logout</button>
@@ -55,7 +54,7 @@
                 ?>
                     <div>
                         <img src="assets/<?=$row['gambar_product'];?>" alt="product" width="100%">
-                        <p><?=$row['nama_product'];?><br> <b>IDR. <?=number_format($row['harga_product']);?>,-</b></p>
+                        <p><?=$row['nama_product'];?><br> <b>Rp. <?=number_format($row['harga_product'],0,",",".")?>,-</b></p>
                         <button style="margin: 20px 0px 0px 0px; padding: 5px;">Tambahkan</button>
                     </div>
                     <?php
@@ -73,7 +72,7 @@
             <small>Copyright &copy; 2022 - Polygon, All Right Reserved.</small>
         </div>
     </footer>
-    <script src="script.js"></script>
+    <script src="js/script.js"></script>
 </body>
 
 </html>

@@ -13,7 +13,7 @@
         $password = $_POST['password'];
         $konfirmasi = $_POST['konfirmasi'];
 
-        $query = mysqli_query($db, "SELECT * FROM users WHERE username = '$username'");
+        $query = mysqli_query($db, "SELECT * FROM akun WHERE username = '$username'");
         if(mysqli_fetch_assoc($query)) {
             echo "
             <script>
@@ -22,7 +22,7 @@
         } else {
             if($password == $konfirmasi) {
                 $password = password_hash($password, PASSWORD_DEFAULT);
-                $query = mysqli_query($db, "INSERT INTO users (nama,email,username,password) VALUES('$nama','$email', '$username', '$password')"); 
+                $query = mysqli_query($db, "INSERT INTO akun (nama,email,username,password) VALUES('$nama','$email', '$username', '$password')"); 
                 if($query) {
                     echo "
                         <script>

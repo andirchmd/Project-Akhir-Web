@@ -4,26 +4,39 @@
     session_start();
     ob_end_clean();
     if(isset($_SESSION["username"])){
-        echo header("location:landing.php");
+        echo header("location:admin.php");
     }else{
 
   if(isset($_POST['submit'])){     
 
   $user = $_POST['user'];
   $password = $_POST['password'];
-  $query = mysqli_query($db,"SELECT * FROM users WHERE username = '$user' OR email ='$user'");
+  $query = mysqli_query($db,"SELECT * FROM akun WHERE username = '$user' OR email ='$user'");
   $result = mysqli_fetch_assoc($query);
   $username = $result['username'];
+  $name = $result['nama'];
   if(password_verify($password,$result['password'])){
     $_SESSION['username']=$username;
-    echo " <script>
-        alert('selamat datang $username');
-        document.location.href='landing.php';
-    </script>";
+    $_SESSION['user']=$name;
+    date_default_timezone_set("Asia/Makassar");
+    $tanggal = date("Y-m-d H:i:s");
+    $queryhistory = mysqli_query($db,"INSERT INTO riwayat_login (nama_user, waktu_login) VALUES('$username', '$tanggal')");
+    if($queryhistory){
+        echo " <script>
+            alert('selamat datang $username');
+            document.location.href='admin.php';
+        </script>";
+    }else{
+        echo " <script>
+        alert('gagal tambah riwayat');
+        document.location.href='login.php';
+        </script>";
+    }
+        
 } else {  
     echo " <script>
        alert('username dan password salah');
-       document.location.href='index.php';
+       document.location.href='login.php';
        </script>";
   }
 
