@@ -37,6 +37,11 @@
             </ul>
         </div>
     </header>
+    <form action="" method="post" class="form">
+        <input type="text" class="cari" name="keyword" placeholder="Pencarian" autofocus autocomplete="off">
+        <button type="submit" class="logo-cari" name="cari"><i class="fa-solid fa-magnifying-glass"></i></button>
+        <a href="index.php" class="pencet"><button name="cari">Refresh</button></a>
+    </form>
     <div class="list-table center" style="overflow-x: auto;">
         <table>
             <thead>
@@ -60,9 +65,17 @@
             <tbody>
                 <?php
                 require "connect.php";
-                $query = mysqli_query($db,"SELECT * FROM product");
+                $result = mysqli_query($db,"SELECT * FROM product");
+                if (isset($_POST["cari"])) {
+                    $result = mysqli_query($db, "SELECT * FROM product WHERE 
+                                        nama_product LIKE '%".$_POST['keyword']."%' OR
+                                        gambar_product LIKE '%".$_POST['keyword']."%' OR
+                                        waktu_up LIKE '%".$_POST['keyword']."%'
+                                        ");
+                    
+                }
                 $i = 1;
-                while($row = mysqli_fetch_assoc($query)){
+                while($row = mysqli_fetch_assoc($result)){
                 ?>
                 <tr>
                     <td style="text-align: center;"><?= $i ?></td>
