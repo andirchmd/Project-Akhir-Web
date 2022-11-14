@@ -31,6 +31,7 @@
         <ul class="navbar">
                 <li><a href="admin.php"><i class="fa fa-fw fa-bicycle"></i> Product</a></li>
                 <li><a href="historyUser.php"><i class="fa fa-fw fa-history"></i> Riwayat Login</a></li>
+                <li><a href="historyProduct.php"><i class="fa fa-fw fa-list"></i> Riwayat Pembelian</a></li>
                 <li><a href="#"><i class="fa fa-fw fa-user"></i>Admin</a></li>
                 <li><a href="logout.php"><i class="fa fa-fw fa-sign-out"></i> Logout</a></li>
             </ul>
